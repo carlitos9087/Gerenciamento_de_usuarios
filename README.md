@@ -19,7 +19,7 @@ Ao automatizar o provisionamento da infraestrutura com a IaC, os desenvolvedores
 
 * O dono de todos os diretórios criados será o usuário root;
 
-* Todos os usuários terão permissão total dentro do diretório publico;
+* Todos os usuários terão permissão total dentro do diretório público;
 
 * Os usuários de cada grupo terão permissão total dentro de seu respectivo diretório;
 
@@ -35,7 +35,7 @@ Ao automatizar o provisionamento da infraestrutura com a IaC, os desenvolvedores
 
 <br/>
 
-Primeiro vamos precisar criar um arquivo Shell, usando o bash podemos passar o comando `touch iacl.sh`. Para editar o arquivo desse projeto, foi usado o editor de texto nano, para abrir e editar o o arquivo basta digitar `nano iacl.sh`. Já com o nano aberto, o primeiro passo é criar os diretórios 
+Primeiro vamos precisar criar um arquivo Shell, usando o bash podemos passar o comando `touch iacl.sh`. Para editar o arquivo desse projeto, foi usado o editor de texto nano, para abrir e editar o arquivo basta digitar `nano iacl.sh`. Já com o nano aberto, o primeiro passo é criar os diretórios 
 
 <br/>
 
@@ -55,7 +55,8 @@ mkdir /sec
 
 <img src="./img/2.jpg" width="720">
 
-O segundo passo é criar os usuários, para isso vamos usar o camando `useradd + nome`,  `-c` adiciona um comentário, `-m` irá criar um diretório do usuário no /home, `-s` serve para definir a shell de cada usuário,  `-p $(openssl passwd -5 Senha)` define a senha do usuário, `-G` adiciona o usuśrio a um grupo.  
+O segundo passo é criar os usuários, para isso vamos usar o camando `useradd + nome`;  `-c` adiciona um comentário; `-m` irá criar um diretório do usuário no /home; `-s` serve para definir a shell de cada usuário; `  -p $(openssl passwd -5 Senha)` define a senha do usuário; `-G` adiciona o usuśrio a um grupo.
+
 ```shell
 echo "Criando usuários"
 
@@ -75,7 +76,7 @@ useradd rogerio -m -c "rogerio lima" -s /bin/bash -p $(openssl passwd -5 Senha12
 ```
 <img src="./img/3.jpg" width="720">
 
-Por último definimos o dono e o grupo responsável por cada diretório com o comando `chown "dono":"grupo" "/diretório"`, e para definirmos as permissões usamos o comando `chmod 000 /diretótio`, seguinto a tabela de permissões:
+Por último definimos o dono e o grupo responsável por cada diretório com o comando `chown "dono":"grupo" "/diretório"`, e para definirmos as permissões usamos o comando `chmod 000 /diretótio`, seguindo a tabela de permissões:
 
 <img src="./img/tabela de permissoes.png" width="720" alt="tabela de permissões">
 
@@ -98,7 +99,7 @@ echo "fim :)"
 
 <br/>
 
-Se um usuário que não é o dono do diretório ou que não faz parte do grupo autorizado tentar entrar no diretório, a permissão será negada. O único diretório que todos conseguem entrar é o publico.
+Se um usuário que não é o dono do diretório ou que não faz parte do grupo autorizado tentar entrar no diretório a permissão será negada. O único diretório que todos conseguem entrar é o público.
 
 <img src="./img/4.jpg" width="720">
 
