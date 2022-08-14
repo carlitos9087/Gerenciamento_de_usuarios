@@ -1,5 +1,4 @@
 # Gerenciamento de usuarios
-Criando e gerenciando usuários no Linux
 
 
 ### O que é IaC?
@@ -15,8 +14,6 @@ Ao automatizar o provisionamento da infraestrutura com a IaC, os desenvolvedores
 <br/>
 
 ### Objetivos do projeto:
-
-<br/> 
 
 * Todo provisionamento deve ser feito em um arquivo do tipo Bash Script;
 
@@ -36,9 +33,14 @@ Ao automatizar o provisionamento da infraestrutura com a IaC, os desenvolvedores
 
 <img src="./img/objetivo.png" alt="objetivo do projeto" width="720">
 
+<br/>
+
 Primeiro vamos precisar criar um arquivo Shell, usando o bash podemos passar o comando `touch iacl.sh`. Para editar o arquivo desse projeto, foi usado o editor de texto nano, para abrir e editar o o arquivo basta digitar `nano iacl.sh`. Já com o nano aberto, o primeiro passo é criar os diretórios 
 
-```
+<br/>
+
+
+```shell
 #!/bin/bash
 
 echo "criando diretórios"
@@ -49,10 +51,12 @@ mkdir /ven
 mkdir /sec
 
 ```
+<br/>
+
 <img src="./img/2.jpg" width="720">
 
-O segundo passo é criar os usuários, para isso vamos usar o camando `useradd + nome`, `-c` adiciona um comentário, `-m` irá criar um diretório do usuário no /home, `-s` serve para definir a shell de cada usuário, `-p $(openssl passwd -5 Senha)` define a senha do usuário, `-G` adiciona o usuśrio a um grupo.  
-```
+O segundo passo é criar os usuários, para isso vamos usar o camando `useradd + nome`,  `-c` adiciona um comentário, `-m` irá criar um diretório do usuário no /home, `-s` serve para definir a shell de cada usuário,  `-p $(openssl passwd -5 Senha)` define a senha do usuário, `-G` adiciona o usuśrio a um grupo.  
+```shell
 echo "Criando usuários"
 
 useradd carlos -m -c "carlos eduardo" -s /bin/bash -p $(openssl passwd -5 Senha123) -G grupo_ADM
